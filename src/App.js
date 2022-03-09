@@ -1,14 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from 'react'
+import Delivery from './components/deliveries'
+import confirmations from './services/confirmations'
 
-function App() {
+const App = () => {
+  const [deliveries, setDeliveries] = useState([])
+
+  useEffect(() => {
+    confirmations
+      .data()
+      .then(confirmations => {
+        setDeliveries(confirmations)
+      })
+  }, [])
+
   return (
-    <div className="App">
-
-          Wolt Admin App
-      
+  
+    <div>
+      <h1>Delivery Confirmations</h1>
+      <ul>
+        {deliveries.map(delivery => 
+          <Delivery
+            key={delivery.uuid}
+            delivery={"UUID: " + delivery.uuid + " Pick up time: " + delivery.pickup_time}
+          />
+        )}
+      </ul>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
