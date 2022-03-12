@@ -12,15 +12,10 @@ const App = () => {
 
   }
 
-  useEffect (() => {
-    console.log(uuid);
-  });
-
   return (
   
     <div>
       <h1>Delivery Confirmations</h1>  
-
       <button onClick={(e) => handleChange(e, 'all')}>Show all deliveries</button><br />
       <input value={uuid} onChange={event => setUuid(event.target.value)} />
       <button onClick={(e) => handleChange(e, uuid)}>Find delivery by UUID</button>

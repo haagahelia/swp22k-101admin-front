@@ -18,8 +18,8 @@ function Deliverylist(props){
     };
 
     const columns = [
-        {field: 'uuid', sortable: true, filter: true},
-        {field: 'pickup_time',sortable: true, filter: true},        
+        {headerName: 'Universally Unique Identifier', field: 'uuid', sortable: true, filter: true, width: 250},
+        {headerName: 'Date and Time of Delivery', field: 'pickup_time',sortable: true, filter: true, width: 250},        
     ]
 
     return(
