@@ -1,31 +1,33 @@
 import { useState, useEffect } from 'react'
-import Delivery from './components/deliveries'
-import confirmations from './services/confirmations'
+import DeliveryList from './components/Table'
 
 const App = () => {
-  const [deliveries, setDeliveries] = useState([])
 
-  useEffect(() => {
-    confirmations
-      .data()
-      .then(confirmations => {
-        setDeliveries(confirmations)
-      })
-  }, [])
+  const [end, setEnd] = useState('all');
+  const [uuid, setUuid] = useState('');
+
+  function handleChange(e, value){
+
+    setEnd(value);
+
+  }
+
+  useEffect (() => {
+    console.log(uuid);
+  });
 
   return (
   
     <div>
-      <h1>Delivery Confirmations</h1>
-      <ul>
-        {deliveries.map(delivery => 
-          <Delivery
-            key={delivery.uuid}
-            delivery={"UUID: " + delivery.uuid + " Pick up time: " + delivery.pickup_time}
-          />
-        )}
-      </ul>
+      <h1>Delivery Confirmations</h1>  
+
+      <button onClick={(e) => handleChange(e, 'all')}>Show all deliveries</button><br />
+      <input value={uuid} onChange={event => setUuid(event.target.value)} />
+      <button onClick={(e) => handleChange(e, uuid)}>Find delivery by UUID</button>
+      {end !== 'all' && <DeliveryList name={end} />}
+      {end === 'all' && <DeliveryList name={end} />}
     </div>
+
   )
 }
 
