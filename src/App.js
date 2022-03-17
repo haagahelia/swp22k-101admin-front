@@ -1,29 +1,31 @@
 import { useState, useEffect } from 'react'
 import DeliveryList from './components/Table'
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import 'ag-grid-community/dist/styles/ag-theme-alpine-dark.css';
 
 const App = () => {
 
-  const [end, setEnd] = useState('all');
-  const [uuid, setUuid] = useState('');
-
-  function handleChange(e, value){
-
-    setEnd(value);
-
-  }
-
   return (
   
-    <div>
-      <h1>Delivery Confirmations</h1>  
-      <button onClick={(e) => handleChange(e, 'all')}>Show all deliveries</button><br />
-      <input value={uuid} onChange={event => setUuid(event.target.value)} />
-      <button onClick={(e) => handleChange(e, uuid)}>Find delivery by UUID</button>
-      {end !== 'all' && <DeliveryList name={end} />}
-      {end === 'all' && <DeliveryList name={end} />}
+    <div className="ag-theme-alpine-dark" style={{ height: '100%', width: '100%', margin : 'auto', backgroundColor: '#161517'}}>
+         <AppBar position="static">
+        <Toolbar>
+          <Typography variant="h6">
+              Wolt Deliveries
+          </Typography>
+        </Toolbar>
+      </AppBar>
+      <DeliveryList />
+
     </div>
 
   )
 }
 
 export default App
+
+
+   //   {end !== 'all' && <DeliveryList name={end} />}
+    //  {end === 'all' && <DeliveryList name={end} />}
