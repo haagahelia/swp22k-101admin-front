@@ -1,11 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {AgGridReact} from 'ag-grid-react';
 import 'ag-grid-community/dist/styles/ag-grid.css';
-import 'ag-grid-community/dist/styles/ag-theme-material.css';
-import 'ag-grid-community/dist/styles/ag-theme-balham.css';
-import 'ag-grid-community/dist/styles/ag-theme-balham-dark.css';
-import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
-import 'ag-grid-community/dist/styles/ag-theme-alpine-dark.css';
 import axios from 'axios';
 import dayjs from 'dayjs';
 
@@ -45,8 +40,8 @@ function Deliverylist(){
 
     return(
 
-        <div className="ag-theme-alpine-dark" 
-        style={{height: 800, width: '90%', margin : 'auto', backgroundColor: '#161517'}}>
+        <div 
+        style={{height: 540, width: 'auto', backgroundColor: '#161517'}}>
            <AgGridReact
                rowData={deliveries}
                columnDefs={columns}

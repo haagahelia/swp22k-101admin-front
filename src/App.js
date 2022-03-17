@@ -9,7 +9,8 @@ const App = () => {
 
   return (
   
-    <div className="ag-theme-alpine-dark" style={{ height: '100%', width: '100%', margin : 'auto', backgroundColor: '#161517'}}>
+    <div className="ag-theme-alpine-dark" 
+    style={{ height: 'auto', width: 'auto', borderLeft:'none', backgroundColor: '#161517'}}>
          <AppBar position="static">
         <Toolbar>
           <Typography variant="h6">
